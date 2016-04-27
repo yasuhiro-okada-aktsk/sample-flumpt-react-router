@@ -40,16 +40,17 @@ class Root extends React.Component {
   }
 }
 
+const routes = (
+  <Route path="/" component={Root}>
+    <IndexRoute component={IndexPage}/>
+    <Route path="/mycomponent" component={MyComponentPage}/>
+  </Route>
+);
+
 class Routes extends React.Component {
-  
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path="/" component={Root}>
-          <IndexRoute component={IndexPage}/>
-          <Route path="/mycomponent" component={MyComponentPage}/>
-        </Route>
-      </Router>
+      <Router history={browserHistory} routes={routes}/>
     );
   }
 }

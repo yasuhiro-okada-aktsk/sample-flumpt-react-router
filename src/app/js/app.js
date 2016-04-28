@@ -17,12 +17,15 @@ class MyComponentPage extends Component {
   componentDidMount() {
     this.dispatch("increment");
   }
+
   render() {
+    const {count} = this.context.emitter.state;
+
     return (
       <div>
         <Link to="/">Home</Link>
         <hr />
-        {this.context.emitter.state.count}
+        {count}
         <br />
         <button onClick={() => this.dispatch("increment")}>increment</button>
       </div>
